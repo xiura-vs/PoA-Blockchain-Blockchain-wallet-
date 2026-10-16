@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node / React build
+node_modules/
+wallet-ui/dist/
+
+# SECRETS and local state: never commit these
+wallet_vault.json
+wallet_vault.json.tmp
+wallet.json
+*.tmp
+
+# Launcher state
+.demo_pids
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

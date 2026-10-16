@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-dim: var(--dim);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-ok: var(--ok);
+  --color-bad: var(--bad);
+  --color-warn: var(--warn);
+  --font-sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0a0d14;
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-2: rgba(255, 255, 255, 0.09);
+  --line: rgba(255, 255, 255, 0.12);
+  --fg: #eef1f7;
+  --dim: #8f99ad;
+  --accent: #7c8cff;
+  --accent-fg: #0a0d14;
+  --ok: #4ade80;
+  --bad: #f87171;
+  --warn: #fbbf24;
+  --glow-a: rgba(124, 140, 255, 0.28);
+  --glow-b: rgba(244, 114, 182, 0.18);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f4f6fb;
+  --surface: rgba(255, 255, 255, 0.75);
+  --surface-2: rgba(15, 23, 42, 0.06);
+  --line: rgba(15, 23, 42, 0.12);
+  --fg: #0f172a;
+  --dim: #5b6578;
+  --accent: #4f46e5;
+  --accent-fg: #ffffff;
+  --ok: #15803d;
+  --bad: #dc2626;
+  --warn: #b45309;
+  --glow-a: rgba(99, 102, 241, 0.2);
+  --glow-b: rgba(236, 72, 153, 0.12);
+  --shadow: 0 20px 60px rgba(15, 23, 42, 0.14);
+}
+
+html, body, #root { min-height: 100%; }
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(60rem 40rem at 15% -10%, var(--glow-a), transparent 60%),
+    radial-gradient(50rem 36rem at 95% 10%, var(--glow-b), transparent 60%);
+  background-attachment: fixed;
+  color: var(--fg);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+input::placeholder { color: var(--dim); opacity: 0.7; }
+::selection { background: var(--accent); color: var(--accent-fg); }
